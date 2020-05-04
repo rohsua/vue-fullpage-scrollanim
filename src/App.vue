@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <full-page ref="fullpage" :options="options" id="fullpage">
+    <full-page :options="options">
       <div class="section">
         First section ...
       </div>
@@ -19,34 +19,21 @@ export default {
   data() {
     return {
       options: {
-        licenseKey: "YOUR_KEY_HEERE",
+        // licenseKey: "YOUR_KEY_HEERE",
         menu: "#menu",
         anchors: ["page1", "page2", "page3"],
-        sectionsColor: ["#41b883", "#ff5f45", "#0798ec"]
+        sectionsColor: ["#41b883", "#ff5f45", "#0798ec"],
+        afterLoad: this.afterLoad
       }
     };
+  },
+  methods: {
+    afterLoad(origin, destination, direction) {
+      console.log(origin, destination, direction);
+    }
   }
 };
 </script>
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
+@import "@/styles/global.scss";
 </style>
