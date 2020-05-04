@@ -10,6 +10,9 @@
       <div class="section">
         Third section ...
       </div>
+      <div class="section fp-auto-height">
+        Footer section ...
+      </div>
     </full-page>
   </div>
 </template>
