@@ -3,6 +3,7 @@
     <full-page :options="options">
       <div class="section">
         First section ...
+        <div class="circle" style="display:block;width:20px;height:20px;border-radius:500em;background-color:#fff"></div>
       </div>
       <div class="section">
         Second section ...
@@ -18,6 +19,8 @@
 </template>
 
 <script>
+import { gsap } from "gsap";
+
 export default {
   data() {
     return {
@@ -33,6 +36,7 @@ export default {
   methods: {
     afterLoad(origin, destination, direction) {
       console.log(origin, destination, direction);
+      gsap.to(".circle", { x: 500, duration: 3 });
     }
   }
 };
